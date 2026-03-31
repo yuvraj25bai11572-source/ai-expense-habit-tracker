@@ -31,7 +31,10 @@ def add_expense():
 def view_expenses():
     df = pd.read_csv(FILE)
     print(df)
-
+    print("\nTotal Spending:", df["amount"].sum())
+    
+    print("\nSpending by Category:")
+    print(df.groupby("category")["amount"].sum())
 def main():
     initialize_file()
 
